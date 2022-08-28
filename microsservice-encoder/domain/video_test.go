@@ -24,17 +24,18 @@ func TestVideoIdIsNotAUuid(t *testing.T) {
 	video.CreatedAt = time.Now()
 
 	err := video.Validate()
+
 	require.Error(t, err)
 }
 
 func TestVideoValidationOk(t *testing.T) {
 	video := domain.NewVideo()
-
 	video.ID = uuid.NewV4().String()
 	video.ResourceID = "abc"
 	video.FilePath = "path"
 	video.CreatedAt = time.Now()
 
 	err := video.Validate()
+
 	require.Nil(t, err)
 }
