@@ -35,7 +35,7 @@ func (repo JobRepositoryDb) Find(id string) (*domain.Job, error) {
 	repo.Db.Preload("Video").First(&job, "id = ?", id)
 
 	if job.ID == "" {
-		return nil, fmt.Errorf("Job does not exist.")
+		return nil, fmt.Errorf("%s: %w", "Job does not exist.", nil)
 	}
 
 	return &job, nil
