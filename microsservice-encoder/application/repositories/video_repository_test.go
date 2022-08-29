@@ -14,12 +14,10 @@ import (
 func TestNewVideoRepositoryDbInsert(t *testing.T) {
 	db := database.NewDbTest()
 	defer db.Close()
-
 	video := domain.NewVideo()
 	video.ID = uuid.NewV4().String()
 	video.FilePath = "path"
 	video.CreatedAt = time.Now()
-
 	repo := repositories.VideoRepositoryDb{Db: db}
 	repo.Insert(video)
 
