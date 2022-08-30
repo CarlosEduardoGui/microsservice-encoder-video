@@ -45,4 +45,10 @@ func TestVideoUseCaseDownload(t *testing.T) {
 
 	err = videoUseCase.Fragment()
 	require.Nil(t, err)
+
+	err = videoUseCase.Encode()
+	require.Nil(t, err)
+
+	err = videoUseCase.Finish()
+	require.Nil(t, err)
 }
