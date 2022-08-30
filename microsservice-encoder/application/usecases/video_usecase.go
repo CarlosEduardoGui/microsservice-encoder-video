@@ -14,7 +14,7 @@ import (
 
 type VideoUseCase struct {
 	Video           *domain.Video
-	VideoRepository *repositories.VideoRepository
+	VideoRepository repositories.VideoRepository
 }
 
 func NewVideoUseCase() VideoUseCase {
