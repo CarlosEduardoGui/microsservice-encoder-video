@@ -22,7 +22,7 @@ jobs:
         go-version: '1.20'
 
     - name: Start containers
-      run: docker-compose -f "microsservice-encoder/docker-compose.yaml" up -d --build 
+      run: docker-compose -f "docker-compose.yaml" up -d --build 
 
     - name: Build
       run: go build -v ./...
