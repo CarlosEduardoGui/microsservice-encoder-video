@@ -21,8 +21,11 @@ jobs:
       with:
         go-version: '1.20'
 
+    - name: Start containers
+      run: docker-compose -f "microsservice-encoder/docker-compose.yml" up -d --build 
+
     - name: Build
-      run: go build -v ./
+      run: go build -v ./...
 
     - name: Test
-      run: go test -v ./
+      run: go test -v ./...
