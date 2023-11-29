@@ -1,4 +1,4 @@
-package usecases
+package services
 
 import (
 	"context"

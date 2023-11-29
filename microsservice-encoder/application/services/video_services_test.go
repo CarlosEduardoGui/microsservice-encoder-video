@@ -1,9 +1,9 @@
-package usecases_test
+package services_test
 
 import (
 	"log"
 	"microsservice-encoder/application/repositories"
-	"microsservice-encoder/application/usecases"
+	"microsservice-encoder/application/services"
 	"microsservice-encoder/domain"
 	"microsservice-encoder/framework/database"
 	"testing"
@@ -36,7 +36,7 @@ func prepare() (*domain.Video, repositories.VideoRepositoryDb) {
 
 func TestVideoUseCaseDownload(t *testing.T) {
 	video, repo := prepare()
-	videoUseCase := usecases.NewVideoUseCase()
+	videoUseCase := services.NewVideoUseCase()
 	videoUseCase.Video = video
 	videoUseCase.VideoRepository = repo
 
