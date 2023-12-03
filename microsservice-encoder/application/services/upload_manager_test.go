@@ -19,7 +19,7 @@ func init() {
 
 func TestVideoServiceUpload(t *testing.T) {
 	video, repo := prepare()
-	videoService := services.NewVideoUseCase()
+	videoService := services.NewVideoService()
 	videoService.Video = video
 	videoService.VideoRepository = repo
 

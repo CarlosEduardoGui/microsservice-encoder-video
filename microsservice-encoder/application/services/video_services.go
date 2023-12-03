@@ -12,16 +12,16 @@ import (
 	"cloud.google.com/go/storage"
 )
 
-type VideoUseCase struct {
+type VideoService struct {
 	Video           *domain.Video
 	VideoRepository repositories.VideoRepository
 }
 
-func NewVideoUseCase() VideoUseCase {
-	return VideoUseCase{}
+func NewVideoService() VideoService {
+	return VideoService{}
 }
 
-func (v *VideoUseCase) Download(bucketName string) error {
+func (v *VideoService) Download(bucketName string) error {
 	ctx := context.Background()
 
 	client, err := storage.NewClient(ctx)
@@ -61,7 +61,7 @@ func (v *VideoUseCase) Download(bucketName string) error {
 	return nil
 }
 
-func (v *VideoUseCase) Fragment() error {
+func (v *VideoService) Fragment() error {
 	videoPath := os.Getenv("LOCAL_STORAGE_PATH") + "/" + v.Video.ID
 
 	err := os.Mkdir(videoPath, os.ModePerm)
@@ -83,7 +83,7 @@ func (v *VideoUseCase) Fragment() error {
 	return nil
 }
 
-func (v *VideoUseCase) Encode() error {
+func (v *VideoService) Encode() error {
 	cmdArgs := []string{}
 	cmdArgs = append(cmdArgs, os.Getenv("LOCAL_STORAGE_PATH")+"/"+v.Video.ID+".frag")
 	cmdArgs = append(cmdArgs, "--use-segment-timeline")
@@ -104,7 +104,7 @@ func (v *VideoUseCase) Encode() error {
 	return nil
 }
 
-func (v *VideoUseCase) Finish() error {
+func (v *VideoService) Finish() error {
 	err := os.Remove(os.Getenv("LOCAL_STORAGE_PATH") + "/" + v.Video.ID + ".mp4")
 	if err != nil {
 		log.Println("Error removing mp4", v.Video.ID, ".mp4")

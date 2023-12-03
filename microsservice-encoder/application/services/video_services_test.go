@@ -36,7 +36,7 @@ func prepare() (*domain.Video, repositories.VideoRepositoryDb) {
 
 func TestVideoServiceDownload(t *testing.T) {
 	video, repo := prepare()
-	videoService := services.NewVideoUseCase()
+	videoService := services.NewVideoService()
 	videoService.Video = video
 	videoService.VideoRepository = repo
 
