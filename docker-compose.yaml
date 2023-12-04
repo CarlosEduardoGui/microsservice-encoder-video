@@ -15,3 +15,15 @@ services:
     ports:
       - "15673:15672"
       - "5673:5672"
+
+  db:
+    image: postgres:9.4
+    restart: always
+    tty: true
+    volumes:
+      - .pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=encoder
+    ports:
+      - "5432:5432"
