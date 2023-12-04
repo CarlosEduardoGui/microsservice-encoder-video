@@ -52,7 +52,7 @@ If the processing has been completed successfully, the JSON return pattern will 
     "video":{
         "encoded_video_folder":"b3f2d41e-2c0a-4830-bd65-68227e97764f",
         "resource_id":"aadc5ff9-0b0d-13ab-4a40-a11b2eaa148c",
-        "file_path":"convite.mp4"
+        "file_path":"invite.mp4"
     },
     "Error":"",
     "created_at":"2020-05-27T19:43:34.850479-04:00",
