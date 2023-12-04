@@ -93,6 +93,15 @@ func (j *JobService) performUpload() error {
 
 }
 
+func (v *VideoService) InsertVideo() error {
+	_, err := v.VideoRepository.Insert(v.Video)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (j *JobService) changeJobStatus(status string) error {
 	var err error
 
